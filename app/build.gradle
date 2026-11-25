@@ -1,0 +1,22 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'com.example.callhelper'
+    compileSdk 33
+    defaultConfig {
+        applicationId "com.example.callhelper"
+        minSdk 26
+        targetSdk 33
+        versionCode 16
+        versionName "10.7"
+    }
+    buildTypes { release { minifyEnabled false } }
+    androidResources { noCompress += ['onnx'] }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+dependencies {
+    // Offline neural TTS runtime (Android AAR + native libraries).
+    implementation 'com.github.k2-fsa.sherpa-onnx:sherpa-onnx:v1.13.5'
+}
